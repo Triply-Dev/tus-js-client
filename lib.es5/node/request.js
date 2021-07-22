@@ -46,6 +46,7 @@ var Request = function () {
     this._headers = {};
     this._resHeaders = {};
     this._request = null;
+    this._response = null;
 
     this.status = 0;
 
@@ -85,6 +86,12 @@ var Request = function () {
       req.on("response", function (res) {
         _this.status = res.statusCode;
         _this._resHeaders = res.headers;
+        _this._response = res;
+
+        res.setEncoding('utf8');
+        res.on('data', function (data) {
+          this.responseText = data;
+        });
 
         _this.onload();
       });
