@@ -1,5 +1,5 @@
 {
-  "name": "tus-js-client",
+  "name": "@triply/tus-js-client",
   "version": "2.3.0",
   "description": "A pure JavaScript client for the tus resumable upload protocol",
   "main": "lib.es5/node/index.js",

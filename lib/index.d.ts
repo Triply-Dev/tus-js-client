@@ -27,9 +27,10 @@ interface UploadOptions {
   fingerprint?: (file: File, options?: UploadOptions) => Promise<string>;
   uploadSize?: number | null;
 
+  mapUrl?: (url: string) => string;
   onProgress?: ((bytesSent: number, bytesTotal: number) => void) | null;
   onChunkComplete?: ((chunkSize: number, bytesAccepted: number, bytesTotal: number) => void) | null;
-  onSuccess?: (() => void) | null;
+  onSuccess?: ((response: string) => void) | null;
   onError?: ((error: Error) => void) | null;
   onShouldRetry?: ((error: Error, retryAttempt: number, options: UploadOptions) => boolean) | null;
 
